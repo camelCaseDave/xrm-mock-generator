@@ -54,10 +54,8 @@
         return addAttribute(numberAttribute);
     };
 
-    Attribute.prototype.createOptionSet = function (name, value, options) {
-        var attribute = createAttribute(name, value);
-        var enumAttribute = new XrmMock.EnumAttributeMock(attribute);
-
+    Attribute.prototype.createOptionSet = function (name, options) {
+        
         var optionSetOptions = [];
         if (options && options.length > 0) {
             for (var i = 0; i < options.length; i++) {
@@ -65,6 +63,9 @@
                 optionSetOptions.push(new XrmMock.OptionSetValueMock(option.name, option.value));
             }
         }
+
+        var attribute = createAttribute(name, options[0]);
+        var enumAttribute = new XrmMock.EnumAttributeMock(attribute);
 
         var optionSetAttribute = new XrmMock.OptionSetAttributeMock(enumAttribute, optionSetOptions);
 
@@ -79,7 +80,9 @@
         var attribute = createAttribute(name, value);
         var stringAttribute = new XrmMock.StringAttributeMock(attribute, format || "text", maxLength || 100);
 
-        return addAttribute(stringAttribute);
+        addAttribute(stringAttribute);
+
+        return stringAttribute;
     };
 
     module.exports = new Attribute();

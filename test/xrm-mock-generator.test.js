@@ -12,7 +12,7 @@ describe("XrmMockGenerator", function () {
     it("should add an attribute", function () {
         var Xrm = XrmMockGenerator.initialise();
         var attribute = XrmMockGenerator.Attribute.createString("firstname", "Joe");
-        
+        expect(attribute).toBeDefined();
         expect(Xrm.Page.getAttribute("firstname").getValue()).toBe("Joe");
     });
 });

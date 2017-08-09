@@ -1,13 +1,26 @@
 {
   "name": "xrm-mock-generator",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Generates a mock Xrm.Page object. Commonly used by xrm-mock to test Dynamics 365 client-side customisations.",
   "main": "xrm-mock-generator.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "dynamics-crm",
+    "dynamics-365",
+    "xrm"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camelCaseDave/xrm-mock-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/camelCaseDave/xrm-mock-generator/issues"
+  },
+  "homepage": "https://github.com/camelCaseDave/xrm-mock-generator#readme",
   "author": "David Clark",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/jasmine": "^2.5.53",
     "jasmine": "^2.7.0",
