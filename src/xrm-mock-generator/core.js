@@ -5,7 +5,6 @@
     var Form = require("./form.js");
     var Attribute = require("./attribute.js");
 
-    var Xrm = {};
     var XrmMockGenerator = function () {};
     
     XrmMockGenerator.prototype.initialise = function () {
@@ -24,14 +23,8 @@
             })
         });
 
-        return Xrm = Xrm;
+        return global.Xrm = Xrm;
     };
-
-    XrmMockGenerator.prototype.addAttribute = function (attribute) {
-        var attributes = Xrm.Page.data.entity.attributes.get();
-        attributes.push(attribute);
-        Xrm.Page.data.entity.attributes = new XrmMock.ItemCollectionMock(attributes);
-    };
-
+    
     module.exports = new XrmMockGenerator();
 }());

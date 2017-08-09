@@ -15,11 +15,16 @@
         return attribute;
     };
 
+    var addAttribute = function (attribute) {
+        var attributes = Xrm.Page.data.entity.attributes.get();
+        attributes.push(attribute);
+    };
+
     Attribute.prototype.createBool = function (name, value) {
         var attribute = createAttribute(name || "", value || false);
         var boolAttribute = new XrmMock.BooleanAttributeMock(attribute);
 
-        return boolAttribute;
+        return addAttribute(boolAttribute);
     };
 
     Attribute.prototype.createDate = function (name, value) {
@@ -29,7 +34,7 @@
             dateAttributeFormat: "date"
         });
 
-        return dateAttribute;
+        return addAttribute(dateAttribute);
     }
 
     Attribute.prototype.createDateTime = function (name, value) {
@@ -39,14 +44,14 @@
             dateAttributeFormat: "datetime"
         });
 
-        return dateAttribute;
+        return addAttribute(dateAttribute);
     }
 
     Attribute.prototype.createNumber = function (name, value, min, max, precision) {
         var attribute = createAttribute(name || "", value || 0);
         var numberAttribute = new XrmMock.NumberAttributeMock(attribute, null, "none", min || 0, max || 0, precision || 1);
 
-        return numberAttribute;
+        return addAttribute(numberAttribute);
     };
 
     Attribute.prototype.createOptionSet = function (name, value, options) {
@@ -62,6 +67,8 @@
         }
 
         var optionSetAttribute = new XrmMock.OptionSetAttributeMock(enumAttribute, optionSetOptions);
+
+        return addAttribute(optionSetAttribute);
     };
 
     Attribute.prototype.createOptionSetOption = function (name, value) {
@@ -72,7 +79,7 @@
         var attribute = createAttribute(name, value);
         var stringAttribute = new XrmMock.StringAttributeMock(attribute, format || "text", maxLength || 100);
 
-        return stringAttribute;
+        return addAttribute(stringAttribute);
     };
 
     module.exports = new Attribute();
