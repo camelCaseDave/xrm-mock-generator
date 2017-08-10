@@ -1,10 +1,10 @@
 {
   "name": "xrm-mock-generator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generates a mock Xrm.Page object. Commonly used by xrm-mock to test Dynamics 365 client-side customisations.",
-  "main": "xrm-mock-generator.js",
+  "main": "dist/xrm-mock-generator.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-js": "browserify src/xrm-mock-generator.js -s XrmMockGenerator -o dist/xrm-mock-generator.js"
   },
   "keywords": [
     "dynamics-crm",
