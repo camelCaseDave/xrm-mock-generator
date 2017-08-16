@@ -13,7 +13,7 @@
         });
 
         return formItem;
-    }
+    };
 
     module.exports = new Form();
 }());

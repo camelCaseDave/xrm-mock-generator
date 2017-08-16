@@ -11,7 +11,7 @@
             isDirty: false,
             submitMode: "dirty"
         });
-
+        
         return attribute;
     };
 
@@ -35,7 +35,7 @@
         });
 
         return addAttribute(dateAttribute);
-    }
+    };
 
     Attribute.prototype.createDateTime = function (name, value) {
         var attribute = createAttribute(name || "", value || new Date());
@@ -45,7 +45,17 @@
         });
 
         return addAttribute(dateAttribute);
-    }
+    };
+
+    Attribute.prototype.createLookup = function (name, lookup) {
+        var attribute = createAttribute(name || "", new XrmMock.LookupValueMock(
+            lookup.id, 
+            lookup.entityType, 
+            lookup.name));
+        var lookupAttribute = new XrmMock.LookupAttributeMock(attribute, false);
+        
+        return addAttribute(lookupAttribute);
+    };
 
     Attribute.prototype.createNumber = function (name, value, min, max, precision) {
         var attribute = createAttribute(name || "", value || 0);

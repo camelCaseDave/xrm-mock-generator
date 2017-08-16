@@ -26,4 +26,10 @@ describe("XrmMockGenerator.Attribute", function () {
         XrmMockGenerator.Attribute.createDateTime("birthdate", date);
         expect(Xrm.Page.getAttribute("birthdate").getValue()).toBe(date);
     });
+
+    it("should create a lookup", function () {
+        var lookup = { id: "5", entityType: "contact", name: "Joe" };
+        XrmMockGenerator.Attribute.createLookup("primarycustomerid", lookup);
+        expect(Xrm.Page.getAttribute("primarycustomerid").getValue().id).toBe("5");
+    });
 });
