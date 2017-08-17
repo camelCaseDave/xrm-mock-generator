@@ -11,7 +11,7 @@
             isDirty: false,
             submitMode: "dirty"
         });
-        
+
         return attribute;
     };
 
@@ -48,12 +48,12 @@
     };
 
     Attribute.prototype.createLookup = function (name, lookup) {
-        var attribute = createAttribute(name || "", new XrmMock.LookupValueMock(
-            lookup.id, 
-            lookup.entityType, 
-            lookup.name));
+        var attribute = createAttribute(name || "", [new XrmMock.LookupValueMock(
+            lookup.id,
+            lookup.entityType,
+            lookup.name)]);
         var lookupAttribute = new XrmMock.LookupAttributeMock(attribute, false);
-        
+
         return addAttribute(lookupAttribute);
     };
 
@@ -65,7 +65,7 @@
     };
 
     Attribute.prototype.createOptionSet = function (name, options) {
-        
+
         var optionSetOptions = [];
         if (options && options.length > 0) {
             for (var i = 0; i < options.length; i++) {

@@ -1,6 +1,6 @@
 {
   "name": "xrm-mock-generator",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "Generates a mock Xrm.Page object. Commonly used by xrm-mock to test Dynamics 365 client-side customisations.",
   "main": "dist/xrm-mock-generator.js",
   "scripts": {

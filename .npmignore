@@ -1,6 +1,7 @@
 wallaby.js
 node_modules
 test
+coverage
 
 .gitattributes
 .gitignore

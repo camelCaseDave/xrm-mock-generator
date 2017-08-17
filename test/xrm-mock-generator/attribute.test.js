@@ -29,7 +29,7 @@ describe("XrmMockGenerator.Attribute", function () {
 
     it("should create a lookup", function () {
         var lookup = { id: "5", entityType: "contact", name: "Joe" };
-        XrmMockGenerator.Attribute.createLookup("primarycustomerid", lookup);
-        expect(Xrm.Page.getAttribute("primarycustomerid").getValue().id).toBe("5");
+        XrmMockGenerator.Attribute.createLookup("primarycustomerid", lookup);        
+        expect(Xrm.Page.getAttribute("primarycustomerid").getValue()[0].id).toBe("5");
     });
 });
