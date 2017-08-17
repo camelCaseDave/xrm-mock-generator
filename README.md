@@ -45,6 +45,14 @@ var optionSetAttribute = XrmMockGenerator.Attribute.createOptionSet("countries",
     { "Spain", 2 }
 ]);
 ```
+#### Lookup Attribute
+```javascript
+var lookupAttribute = XrmMockGenerator.Attribute.createLookup("primarycustomerid", {
+  id: "{00000000-0000-0000-0000-000000000000}",
+  entityType: "contact",
+  name: "Joe Bloggs"
+});
+```
 
 ## Example
 This example showcases a contact form that changes the contact's firstname from Joe to Bob when the form is loaded.
