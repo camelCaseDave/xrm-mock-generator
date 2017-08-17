@@ -72,8 +72,7 @@ This example showcases a contact form that changes the contact's firstname from 
     module.exports = new Contact();
     
     // browser
-    global.Contact = new Contact();
-    
+    global.Contact = new Contact();    
 }());
 ```
 #### test/contact.test.js
@@ -88,13 +87,13 @@ describe("Contact Form", () => {
     });
     
     describe("default", () => {
-        expect(Xrm.Page.getAttribute("firstname").getValue()).toBe("Joe"); //true
+        expect(Xrm.Page.getAttribute("firstname").getValue()).toBe("Joe"); // true
     });
     
     describe("onLoad", () => {
         ContactForm.onLoad();
         
-        expect(Xrm.Page.getAttribute("firstname").getValue()).toBe("Bob"); //true
+        expect(Xrm.Page.getAttribute("firstname").getValue()).toBe("Bob"); // true
     });
 });
 ```
