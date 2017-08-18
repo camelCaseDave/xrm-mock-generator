@@ -91,8 +91,7 @@ describe("Contact Form", () => {
     });
     
     describe("onLoad", () => {
-        Contact.onLoad();
-        
+        Contact.onLoad();        
         expect(Xrm.Page.getAttribute("firstname").getValue()).toBe("Bob"); // true
     });
 });
