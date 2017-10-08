@@ -10,6 +10,11 @@ describe("XrmMockGenerator.Attribute", function () {
         expect(XrmMockGenerator.Attribute).toBeDefined();
     });
 
+    it("should create a string", function () {
+        XrmMockGenerator.Attribute.createString("new_string", "random string");
+        expect(Xrm.Page.getAttribute("new_string").getValue()).toBe("random string");
+    });
+
     it("should create a bool", function () {
         XrmMockGenerator.Attribute.createBool("new_havingfun", true);
         expect(Xrm.Page.getAttribute("new_havingfun").getValue()).toBe(true);
@@ -29,7 +34,17 @@ describe("XrmMockGenerator.Attribute", function () {
 
     it("should create a lookup", function () {
         var lookup = { id: "5", entityType: "contact", name: "Joe" };
-        XrmMockGenerator.Attribute.createLookup("primarycustomerid", lookup);        
+        XrmMockGenerator.Attribute.createLookup("primarycustomerid", lookup);
         expect(Xrm.Page.getAttribute("primarycustomerid").getValue()[0].id).toBe("5");
+    });
+
+    it("should create an option set", function () {
+        var optionSet = [
+          { value: 0, text: 'zero' },
+          { value: 1, text: 'one' },
+          { value: 2, text: 'two' },
+        ];
+        XrmMockGenerator.Attribute.createOptionSet("new_optionset", optionSet);
+        expect(Xrm.Page.getAttribute("new_optionset").getOptions()).toEqual(optionSet);
     });
 });

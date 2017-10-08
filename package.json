@@ -4,7 +4,8 @@
   "description": "Generates a mock Xrm.Page object. Commonly used by xrm-mock to test Dynamics 365 client-side customisations.",
   "main": "dist/xrm-mock-generator.js",
   "scripts": {
-    "build-js": "browserify src/xrm-mock-generator.js -s XrmMockGenerator -o dist/xrm-mock-generator.js"
+    "build-js": "browserify src/xrm-mock-generator.js -s XrmMockGenerator -o dist/xrm-mock-generator.js",
+    "test": "JASMINE_CONFIG_PATH=./jasmine.json jasmine"
   },
   "keywords": [
     "dynamics-crm",
@@ -23,9 +24,12 @@
   "license": "MIT",
   "devDependencies": {
     "@types/jasmine": "^2.5.53",
+    "browserify": "^14.4.0",
     "jasmine": "^2.7.0",
     "wallaby-webpack": "0.0.39",
-    "webpack": "^3.5.1",
+    "webpack": "^3.5.1"
+  },
+  "dependencies": {
     "xrm-mock": "^2.0.5"
   }
 }
