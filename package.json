@@ -26,6 +26,6 @@
     "jasmine": "^2.7.0",
     "wallaby-webpack": "0.0.39",
     "webpack": "^3.5.1",
-    "xrm-mock": "^2.0.5"
+    "xrm-mock": "^2.0.9"
   }
 }

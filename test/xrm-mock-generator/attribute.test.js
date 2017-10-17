@@ -32,4 +32,10 @@ describe("XrmMockGenerator.Attribute", function () {
         XrmMockGenerator.Attribute.createLookup("primarycustomerid", lookup);        
         expect(Xrm.Page.getAttribute("primarycustomerid").getValue()[0].id).toBe("5");
     });
+
+    it("should create a string control as well", function () {
+        XrmMockGenerator.Attribute.createString("firstname", "Joe");
+        expect(Xrm.Page.getAttribute("firstname").getValue()).toBe("Joe");
+        expect(Xrm.Page.getControl("firstname").getDisabled()).toBe(false);
+    });
 });

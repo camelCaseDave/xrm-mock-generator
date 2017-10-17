@@ -2,6 +2,8 @@
     "use strict";
 
     var XrmMock = require("xrm-mock");
+    var Control = require("./control.js");
+
     var Attribute = function () {};
 
     var createAttribute = function (name, value) {
@@ -65,7 +67,6 @@
     };
 
     Attribute.prototype.createOptionSet = function (name, options) {
-
         var optionSetOptions = [];
         if (options && options.length > 0) {
             for (var i = 0; i < options.length; i++) {
@@ -76,7 +77,6 @@
 
         var attribute = createAttribute(name, options[0]);
         var enumAttribute = new XrmMock.EnumAttributeMock(attribute);
-
         var optionSetAttribute = new XrmMock.OptionSetAttributeMock(enumAttribute, optionSetOptions);
 
         return addAttribute(optionSetAttribute);
@@ -86,11 +86,13 @@
         return new XrmMock.OptionSetValueMock(name, value);
     };
 
-    Attribute.prototype.createString = function (name, value, format, maxLength) {
+    Attribute.prototype.createString = function (name, value, label, format, maxLength, isVisible, isDisabled) {
         var attribute = createAttribute(name, value);
         var stringAttribute = new XrmMock.StringAttributeMock(attribute, format || "text", maxLength || 100);
 
         addAttribute(stringAttribute);
+
+        Control.createStringControl(name, label || "", isVisible || true, isDisabled || false, attribute);
 
         return stringAttribute;
     };

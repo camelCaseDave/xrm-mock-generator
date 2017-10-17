@@ -2,7 +2,7 @@
     "use strict";
 
     var XrmMock = require("xrm-mock");
-    var Ui = require("ui.js");
+    var Ui = require("./ui.js");
 
     var Control = function () {};    
 
@@ -15,6 +15,10 @@
         });
     };
 
+    var addControl = function (control) {
+        Xrm.Page.ui.controls.push(control);
+    };
+
     Control.prototype.createStringControl = function (name, label, isVisible, isDisabled, attribute) {
         var stringControl = new XrmMock.StringControlMock(
             new XrmMock.AutoLookupControlMock(
@@ -22,11 +26,13 @@
                     control: createControl(name, label, isVisible),
                     attribute: attribute,
                     disabled: isDisabled,
-                    uiStandardElement: Ui.createStandardElement(labelElement, visibleElement)
+                    uiStandardElement: Ui.createStandardElement(label, isVisible)
                 }),
-                new XrmMock.UiKeyPressable()
+                new XrmMock.UiKeyPressableMock()
             )
         );
+
+        addControl(stringControl);
     };
 
     module.exports = new Control();
