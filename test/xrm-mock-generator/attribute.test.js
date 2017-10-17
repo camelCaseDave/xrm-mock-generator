@@ -47,4 +47,10 @@ describe("XrmMockGenerator.Attribute", function () {
         XrmMockGenerator.Attribute.createOptionSet("new_optionset", optionSet);
         expect(Xrm.Page.getAttribute("new_optionset").getOptions()).toEqual(optionSet);
     });
+
+    it("should create a string control as well", function () {
+        XrmMockGenerator.Attribute.createString("firstname", "Joe");
+        expect(Xrm.Page.getAttribute("firstname").getValue()).toBe("Joe");
+        expect(Xrm.Page.getControl("firstname").getDisabled()).toBe(false);
+    });
 });

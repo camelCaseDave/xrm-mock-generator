@@ -7,20 +7,23 @@
     var Ui = require("./ui.js");
 
     var XrmMockGenerator = function () {};
-    
+
     XrmMockGenerator.prototype.initialise = function () {
         var Xrm = new XrmMock.XrmStaticMock({
             page: new XrmMock.PageMock({
                 context: new XrmMock.ContextMock({
                     userRoles: []
                 }),
-                data: new XrmMock.DataMock(new XrmMock.EntityMock(new XrmMock.ItemCollectionMock([]))),
+                data: new XrmMock.DataMock(
+                    new XrmMock.EntityMock(
+                        "{00000000-0000-0000-0000-000000000000}",
+                        new XrmMock.ItemCollectionMock([]))),
                 ui: Ui.createUi()
             })
         });
 
         return global.Xrm = Xrm;
     };
-    
+
     module.exports = new XrmMockGenerator();
 }());
