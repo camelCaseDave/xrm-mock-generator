@@ -99,3 +99,4 @@ describe("Contact Form", () => {
 
 ## :heart:  Roadmap
  - Automatically create attribute metadata from a Dynamics 365 instance
+ - Create a d.ts file so that the project is consumable via TypeScript
