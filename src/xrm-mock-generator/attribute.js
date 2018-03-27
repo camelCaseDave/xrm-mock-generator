@@ -26,7 +26,8 @@
         var attribute = createAttribute(name || "", value || false);
         var boolAttribute = new XrmMock.BooleanAttributeMock(attribute);
 
-        return addAttribute(boolAttribute);
+        addAttribute(boolAttribute);
+        return boolAttribute;
     };
 
     Attribute.prototype.createDate = function (name, value) {
@@ -36,7 +37,8 @@
             dateAttributeFormat: "date"
         });
 
-        return addAttribute(dateAttribute);
+        addAttribute(dateAttribute);
+        return dateAttribute;
     };
 
     Attribute.prototype.createDateTime = function (name, value) {
@@ -46,7 +48,8 @@
             dateAttributeFormat: "datetime"
         });
 
-        return addAttribute(dateAttribute);
+        addAttribute(dateAttribute);
+        return dateAttribute;
     };
 
     Attribute.prototype.createLookup = function (name, lookup) {
@@ -56,14 +59,16 @@
             lookup.name)]);
         var lookupAttribute = new XrmMock.LookupAttributeMock(attribute, false);
 
-        return addAttribute(lookupAttribute);
+        addAttribute(lookupAttribute);
+        return lookupAttribute
     };
 
     Attribute.prototype.createNumber = function (name, value, min, max, precision) {
         var attribute = createAttribute(name || "", value || 0);
         var numberAttribute = new XrmMock.NumberAttributeMock(attribute, null, "none", min || 0, max || 0, precision || 1);
 
-        return addAttribute(numberAttribute);
+        addAttribute(numberAttribute);
+        return numberAttribute;
     };
 
     Attribute.prototype.createOptionSet = function (name, options) {
@@ -79,7 +84,8 @@
         var enumAttribute = new XrmMock.EnumAttributeMock(attribute);
         var optionSetAttribute = new XrmMock.OptionSetAttributeMock(enumAttribute, optionSetOptions);
 
-        return addAttribute(optionSetAttribute);
+        addAttribute(optionSetAttribute);
+        return optionSetAttribute;
     };
 
     Attribute.prototype.createOptionSetOption = function (name, value) {

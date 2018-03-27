@@ -5,7 +5,7 @@
   "main": "dist/xrm-mock-generator.js",
   "scripts": {
     "test": "JASMINE_CONFIG_PATH=./jasmine.json jasmine",
-    "build-js": "webpack ./src/xrm-mock-generator.js ./dist/xrm-mock-generator.js --optimize-minimize"
+    "build-js": "webpack ./src/xrm-mock-generator.js ./dist/xrm-mock-generator.js --output-library-target=commonjs-module --optimize-minimize"
   },
   "keywords": [
     "dynamics-crm",
