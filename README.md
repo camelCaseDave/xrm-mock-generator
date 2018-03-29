@@ -1,3 +1,5 @@
+> 29/03/18 This project is no longer being maintained. It has been merged into [xrm-mock](https://github.com/camelCaseDave/xrm-mock).
+
 ## :book: xrm-mock-generator
 
 Generates a mock Xrm.Page object.
